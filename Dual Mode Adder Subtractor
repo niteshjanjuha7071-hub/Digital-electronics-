@@ -1,0 +1,35 @@
+module dual_mode_add_sub_4bit (
+3 input wire clk ,
+4 input wire rst ,
+5 input wire en ,
+6 input wire mode ,
+7 input wire [3:0] A,
+8 input wire [3:0] B,
+9 output reg [3:0] S,
+10 output reg Cout
+11 );
+12
+13 wire [3:0] B_mod;
+14 wire [4:0] result_temp ;
+15
+19 INTERNSHIP TRAINING REPORT DIGITAL DESIGN AND VERILOG HDL
+16 assign B_mod = B ^ {4{ mode }};
+17
+18 assign result_temp =
+19 {1'b0 ,A} + {1'b0 ,B_mod} + mode;
+20
+21 always @(posedge clk or posedge rst) begin
+22
+23 if(rst) begin
+24 S <= 4'b0000;
+25 Cout <= 1'b0;
+26 end
+27
+28 else if(en) begin
+29 S <= result_temp [3:0];
+30 Cout <= result_temp [4];
+31 end
+32
+33 end
+34
+35 endmodul
