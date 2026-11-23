@@ -1,0 +1,15 @@
+module mux4to1(
+2 input wire [3:0] d,
+3 input wire [1:0] sel ,
+4 output reg y
+5 );
+6 always @(*) begin
+7 case(sel)
+8 2'b00: y = d[0];
+9 2'b01: y = d[1];
+10 2'b10: y = d[2];
+11 2'b11: y = d[3];
+12 default: y = 1'b0;
+13 endcase
+14 end
+15 endmodule
