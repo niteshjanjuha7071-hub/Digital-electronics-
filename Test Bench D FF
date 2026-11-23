@@ -1,0 +1,28 @@
+module tb_d_ff;
+2
+3 reg clk;
+4 reg reset;
+5 reg d;
+6 wire q;
+7
+8 d_ff dut(
+9 .clk(clk),
+10 .reset(reset),
+11 .d(d),
+12 .q(q)
+13 );
+14
+15 always #5 clk = ~clk;
+16
+17 initial begin
+18 clk = 0;
+19 reset = 1;
+20 d = 0;
+21
+22 #10 reset = 0;
+23 #10 d = 1;
+24 #10 d = 0;
+25 #20 $finish;
+26 end
+27
+28 endmodule
