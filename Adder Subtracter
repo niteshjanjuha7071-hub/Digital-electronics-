@@ -1,0 +1,17 @@
+module add_sub4(
+2 input wire [3:0] a,
+3 input wire [3:0] b,
+4 input wire mode ,
+5 output wire [3:0] result ,
+6 output wire carry_out
+7 );
+8
+9 wire [3:0] bx;
+10
+11 assign bx = b ^ {4{ mode }};
+12
+21 INTERNSHIP TRAINING REPORT DIGITAL DESIGN AND VERILOG HDL
+13 assign {carry_out , result} =
+14 {1'b0 ,a} + {1'b0 ,bx} + mode;
+15
+16 endmodule
