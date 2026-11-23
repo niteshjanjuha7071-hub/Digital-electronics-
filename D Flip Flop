@@ -1,0 +1,13 @@
+module d_ff(
+2 input wire clk ,
+3 input wire reset ,
+4 input wire d,
+5 output reg q
+6 );
+7 always @(posedge clk or posedge reset) begin
+8 if(reset)
+9 q <= 1'b0;
+10 else
+11 q <= d;
+12 end
+13 endmodule
