@@ -1,0 +1,12 @@
+module full_adder (
+2 input wire a,
+3 input wire b,
+4 input wire cin ,
+5 output wire sum ,
+6 output wire cout
+7 );
+8 assign sum = a ^ b ^ cin;
+9 assign cout = (a & b) |
+10 (a & cin) |
+11 (b & cin);
+12 endmodule
